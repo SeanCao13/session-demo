@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-child',
@@ -7,6 +9,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
   vData: any;
+  public clickStream = new Subject<Event>();
   constructor() {
     this.vData = {
       name: 'Christoph Burgdorf',
@@ -24,4 +27,8 @@ export class ChildComponent implements OnInit {
   changeData() {
     this.vData.name = 'Pascal Precht';
   }
+
+  buttonClick(event:Event){
+        this.clickStream.next(event);
+    }
 }

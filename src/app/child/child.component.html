@@ -3,5 +3,7 @@
   <span [textContent]="time | date:'hh:mm:ss:SSS'"></span>
 </h3> -->
 <button (click)='changeData()'>Trigger Change detection</button>
+<button (click)='buttonClick()'>Trigger Observable</button>
 
 <app-child-cmp [vData]='vData'></app-child-cmp>
+<app-counter-cmp [addItemStream]='clickStream'></app-counter-cmp>
