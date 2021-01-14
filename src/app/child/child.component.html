@@ -1,9 +1,16 @@
-<!-- <h3>
+<h3>
   change detection is triggered at:
   <span [textContent]="time | date:'hh:mm:ss:SSS'"></span>
-</h3> -->
+</h3>
 <button (click)='changeData()'>Trigger Change detection</button>
-<button (click)='buttonClick()'>Trigger Observable</button>
+<button (click)='buttonClick($event)'>Trigger Observable</button>
 
+<span *ngIf="showNgIf()">ngIf running</span>
+<h3>Cities</h3>
+<ul>
+  <li *ngFor="let city of cities">{{city}}</li>
+</ul>
+<div>{{methodInTemplate()}}</div>
 <app-child-cmp [vData]='vData'></app-child-cmp>
 <app-counter-cmp [addItemStream]='clickStream'></app-counter-cmp>
+<app-grand-child [cities]='cities'></app-grand-child>

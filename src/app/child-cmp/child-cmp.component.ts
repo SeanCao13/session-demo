@@ -4,12 +4,17 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-child-cmp',
   templateUrl: './child-cmp.component.html',
-  styleUrls: ['./child-cmp.component.css'],
+  styleUrls: ['./child-cmp.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildCmpComponent implements OnInit {
+  cmpData: any;
+  @Input()
+  public set vData(v: string) {
+    console.log('in childCmp set')
+    this.cmpData = v;
+  }
 
-  @Input() vData;
   constructor() { }
 
   ngOnInit(): void {
